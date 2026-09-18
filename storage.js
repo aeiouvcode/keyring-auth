@@ -1,4 +1,4 @@
-import {enc} from './crypto.js';
+import {enc} from './crypto.js?v=3';
 const DB='keyring-auth', STORE='vault', META='meta', ITERATIONS=650000;
 const open=()=>new Promise((ok,no)=>{const r=indexedDB.open(DB,1);r.onupgradeneeded=()=>r.result.createObjectStore(STORE);r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)});
 async function get(k){const d=await open();return new Promise((ok,no)=>{const r=d.transaction(STORE).objectStore(STORE).get(k);r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)});}
