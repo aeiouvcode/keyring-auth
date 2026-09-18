@@ -1,4 +1,4 @@
-import {parseOtpAuth,totp} from './crypto.js';import {exists,createVault,unlock,saveAccount,deleteAccount,exportVault,importVault} from './storage.js';
+import {parseOtpAuth,totp} from './crypto.js?v=3';import {exists,createVault,unlock,saveAccount,deleteAccount,exportVault,importVault} from './storage.js?v=3';
 const $=s=>document.querySelector(s);let accounts=[],passphrase=null,ticker=null,idle=null,stream=null,scanning=false;const toast=t=>{$('#toast').textContent=t;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),1800)};
 async function gate(){const has=await exists();$('#gateTitle').textContent=has?'Unlock vault':'Create your vault';$('#gateText').textContent=has?'Enter your passphrase. Decryption happens only in memory.':'Your tokens stay encrypted on this device. Nothing leaves the browser.';$('#importStart').hidden=has;}
 function resetIdle(){clearTimeout(idle);if(passphrase)idle=setTimeout(lock,5*60*1000)};['pointerdown','keydown'].forEach(e=>addEventListener(e,resetIdle));
