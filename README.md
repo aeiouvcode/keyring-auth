@@ -2,6 +2,10 @@
 
 A static, encrypted TOTP authenticator. No backend, accounts, telemetry, or runtime network calls.
 
+![Keyring Auth vault setup](docs/screenshot.jpg)
+
+**Live:** https://aeiouvcode.github.io/keyring-auth/
+
 - RFC 6238: SHA-1 / SHA-256 / SHA-512, 6 or 8 digits, custom period
 - `otpauth://` paste and local camera QR scanning
 - PBKDF2-SHA-256 (650,000 iterations) + per-record AES-256-GCM
